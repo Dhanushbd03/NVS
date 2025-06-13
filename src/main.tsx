@@ -7,7 +7,8 @@ import './styles.css'
 
 import reportWebVitals from './reportWebVitals.ts'
 import * as TanStackQueryProvider from './integrations/tanstack-query/root-provider.tsx'
-import  router from './routes/routes.tsx'
+import router from './routes/routes.tsx'
+import { ThemeProvider } from './contexts/ThemeContext.tsx' // Added import
 
 
 
@@ -22,9 +23,11 @@ if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
     <StrictMode>
-      <TanStackQueryProvider.Provider>
-        <RouterProvider router={router} />
-      </TanStackQueryProvider.Provider>
+      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme"> {/* Wrapped with ThemeProvider */}
+        <TanStackQueryProvider.Provider>
+          <RouterProvider router={router} />
+        </TanStackQueryProvider.Provider>
+      </ThemeProvider> {/* Closed ThemeProvider */}
     </StrictMode>,
   )
 }
