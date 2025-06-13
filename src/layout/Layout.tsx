@@ -5,7 +5,7 @@ import TanStackQueryLayout from '../integrations/tanstack-query/layout.tsx'
 
 const Layout = createRootRoute({
   component: () => (
-    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 p-2 bg-[var(--geysar)]"> {/* Explicitly use var(--geysar) and added dark gradient */}
+    <div className="min-h-screen bg-[var(--geysar)] bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 p-2"> {/* Explicitly use var(--geysar) and added dark gradient */}
       <Header />
       <Outlet />
       <TanStackRouterDevtools />
